@@ -5,7 +5,7 @@ import { useState } from 'react';
 function App() {
 
   let post = '블로그임';
-  let [title, setTitle] = useState(['남자 코트 추천', '강남 우동맛집', '파이썬독학']);
+  let [title, setTitle] = useState(['<남자 코트 추천>', '<강남 우동맛집>', '<파이썬독학>']);
   let [date, setDate] = useState(['11월1일', '11월2일', '11월3일']);
   let [good, setGood] = useState([0, 0, 0]);
 
