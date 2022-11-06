@@ -10,6 +10,7 @@ function App() {
   let [good, setGood] = useState([0, 0, 0]);
 
   let [modal, setModal] = useState(false); 
+  let [selIdx, setSelIdx] = useState(0);
   let [selTitle, setSelTitle] = useState(title[0]);
   let [selDate, setSelDate] = useState(date[0]);
 
@@ -48,8 +49,9 @@ function App() {
               <h4 onClick={()=>{ 
                 setSelTitle(arrTitle);
                 setSelDate(date[idx]);
-                console.log(modal);
-                setModal(!modal); 
+                setSelIdx(idx);
+                (idx==selIdx)?setModal(!modal):setModal(true);
+                
                 }}> { arrTitle } 
                 <span onClick={(e) => {
                   e.stopPropagation();
