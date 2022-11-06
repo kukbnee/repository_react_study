@@ -5,11 +5,13 @@ import { useState } from 'react';
 function App() {
 
   let post = '블로그임';
-  let [title, setTitle] = useState(['<남자 코트 추천>', '<강남 우동맛집>', '<파이썬독학>']);
+
+  let [title, setTitle] = useState(['[남자 코트 추천]', '[강남 우동맛집]', '[파이썬독학]']);
   let [date, setDate] = useState(['11월1일', '11월2일', '11월3일']);
   let [good, setGood] = useState([0, 0, 0]);
 
   let [modal, setModal] = useState(false); 
+  let [selIdx, setSelIdx] = useState(0);
   let [selTitle, setSelTitle] = useState(title[0]);
   let [selDate, setSelDate] = useState(date[0]);
 
@@ -48,8 +50,9 @@ function App() {
               <h4 onClick={()=>{ 
                 setSelTitle(arrTitle);
                 setSelDate(date[idx]);
-                console.log(modal);
-                setModal(!modal); 
+                setSelIdx(idx);
+                (idx==selIdx)?setModal(!modal):setModal(true);
+                
                 }}> { arrTitle } 
                 <span onClick={(e) => {
                   e.stopPropagation();
